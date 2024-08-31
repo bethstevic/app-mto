@@ -1,9 +1,11 @@
 import React from 'react';
 
 import FormLayout from '@/components/material-take-off-form/FormLayout';
+import { MaterialTakeOffFormContextProvider } from '@/contexts/material-take-off-form-context';
+import { Customer } from '@/components/types';
+
 import styles from './CustomerInfo.module.scss';
 
-import { Customer } from '@/components/types';
 
 const CustomerInfo = ({ 
   name,
@@ -18,7 +20,9 @@ const CustomerInfo = ({
         <div className={styles.address}>{streetAddress}</div>
         <div className={styles.address}>{city}, GA {zipCode}</div>
       </div>
-      <FormLayout />
+      <MaterialTakeOffFormContextProvider>
+        <FormLayout />
+      </MaterialTakeOffFormContextProvider>
     </>
   );
 }

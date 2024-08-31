@@ -8,6 +8,7 @@ const Settings = () => {
       <h1>Settings</h1>
       <div className={styles.card}>
         <h2>Material Overages</h2>
+      </div>
     </div>
   )
 }

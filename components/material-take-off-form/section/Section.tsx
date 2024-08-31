@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import { MATERIAL_TAKEOFFS, MATERIAL_OVERAGES } from '@/data/mocks'
 import { camelCaseToText } from '@/helpers/strings'
+import { useMaterialTakeOffForm, MaterialTakeOffFormContextValue } from '@/contexts/material-take-off-form-context';
 
 import styles from './Section.module.scss'
 
@@ -17,6 +18,10 @@ const getMaterialOverage = (materialType: string, exact: number) => {
 const Section = ({
   section
 }: {section: string}) => {
+   const {
+    editMode,
+    setEditMode,
+  } = useMaterialTakeOffForm() as MaterialTakeOffFormContextValue;
   return (
     <div className={styles.container}>
       <div className={styles.title}>{camelCaseToText(section)}</div>
@@ -33,14 +38,40 @@ const Section = ({
           // @ts-ignore
         MATERIAL_TAKEOFFS[section].map((material) => (
           <tr key={material.id}>
-            <td className={styles.cell}><input type="number" value={material.exact} /></td>
+            <td className={styles.cell}>
+              <input 
+                type="number" 
+                value={material.exact}
+                readOnly={!editMode}
+              />
+            </td>
             <td className={styles.cell}>{Math.ceil(getMaterialOverage(material.materialType, material.exact))}</td>
-            <td className={styles.cell}><input type="checkbox" /></td>
-            <td className={styles.cell}><input type="checkbox" /></td>
-            <td className={styles.cell}><textarea value={material.materialSize} /></td>
-            <td className={styles.cell}><textarea value={material.materialType} /></td>
-            <td className={styles.cell}><textarea value={material.usedFor} /></td>
-            <td className={styles.cell}><textarea value={material.notes} /></td>
+            <td className={styles.cell}><input type="checkbox" readOnly={!editMode} /></td>
+            <td className={styles.cell}><input type="checkbox" readOnly={!editMode} /></td>
+            <td className={styles.cell}>
+                <textarea 
+                  value={material.materialSize}
+                  readOnly={!editMode}
+                />
+              </td>
+            <td className={styles.cell}>
+              <textarea 
+                value={material.materialType}
+                readOnly={!editMode}
+              />
+            </td>
+            <td className={styles.cell}>
+              <textarea 
+                value={material.usedFor}
+                readOnly={!editMode}
+              />
+            </td>
+            <td className={styles.cell}>
+              <textarea 
+                value={material.notes}
+                readOnly={!editMode}
+              />
+            </td>
           </tr>
         ))}
       </table>
