@@ -1,0 +1,41 @@
+.container {
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.title {
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  width: 100%;
+  justify-content: center;
+  border-bottom: 1px solid;
+}
+
+.header {
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.table {
+  width: 100%;
+}
+
+.cell {
+  text-align: center;
+  font-size: 12px;
+  text-transform: capitalize;
+  
+  input {
+    text-align: center;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
