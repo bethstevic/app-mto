@@ -28,11 +28,19 @@
 .cell {
   text-align: center;
   font-size: 12px;
-  text-transform: capitalize;
-  
+
+  textarea {
+    resize: none;
+  }
+
+  textarea,
   input {
+    height: auto;
     text-align: center;
     border: none;
+    white-space: wrap;
+    word-wrap: break-word;
+    text-transform: capitalize;
 
     &:hover {
       cursor: pointer;

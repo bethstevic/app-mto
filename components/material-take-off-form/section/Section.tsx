@@ -33,14 +33,14 @@ const Section = ({
           // @ts-ignore
         MATERIAL_TAKEOFFS[section].map((material) => (
           <tr key={material.id}>
-            <td className={styles.cell}><input value={material.exact} /></td>
+            <td className={styles.cell}><input type="number" value={material.exact} /></td>
             <td className={styles.cell}>{Math.ceil(getMaterialOverage(material.materialType, material.exact))}</td>
             <td className={styles.cell}><input type="checkbox" /></td>
             <td className={styles.cell}><input type="checkbox" /></td>
-            <td className={styles.cell}><input value={material.materialSize} /></td>
-            <td className={styles.cell}><input value={material.materialType} /></td>
-            <td className={styles.cell}><input value={material.usedFor} /></td>
-            <td className={styles.cell}><input value={material.notes} /></td>
+            <td className={styles.cell}><textarea value={material.materialSize} /></td>
+            <td className={styles.cell}><textarea value={material.materialType} /></td>
+            <td className={styles.cell}><textarea value={material.usedFor} /></td>
+            <td className={styles.cell}><textarea value={material.notes} /></td>
           </tr>
         ))}
       </table>
